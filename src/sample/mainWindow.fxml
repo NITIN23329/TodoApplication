@@ -1,3 +1,4 @@
+
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
@@ -15,6 +16,9 @@
     <left>
         <ListView fx:id="myTodoList" onMouseClicked="#handleClickListView"/>
     </left>
+<!--    top section will contain a menu of new deadline and exit option-->
+<!--    Menu bar contains a Menu named File which will be shown in UI design-->
+<!--    This menu has 2 options : add a new deadline and exit from application-->
     <top>
         <MenuBar>
             <Menu text="File">

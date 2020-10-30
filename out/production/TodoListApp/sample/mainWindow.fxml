@@ -1,3 +1,4 @@
+
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
@@ -5,15 +6,19 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.text.Font?>
-
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
+<!--Border pane divide whole window 5 sections : top,bottom,left,right and remaining center-->
 <BorderPane fx:controller="sample.Controller"
-            xmlns:fx="http://javafx.com/fxml">
+            xmlns:fx="http://javafx.com/fxml" >
+<!--    in left section we will display short description of each item-->
     <left>
         <ListView fx:id="myTodoList" onMouseClicked="#handleClickListView"/>
     </left>
+<!--    top section will contain a menu of new deadline and exit option-->
+<!--    Menu bar contains a Menu named File which will be shown in UI design-->
+<!--    This menu has 2 options : add a new deadline and exit from application-->
     <top>
         <MenuBar>
             <Menu text="File">
