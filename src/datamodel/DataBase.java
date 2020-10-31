@@ -9,7 +9,8 @@ import java.util.List;
 public class DataBase {
     private  static final List<TodoItem> todoItemList=new ArrayList<>();    //it will store list of Todo items we will display
     private static final List<String> list = new ArrayList<>(); //it contains data of txt file
-
+    //singleton class i.e. only one instance will be created
+    private DataBase(){}
     public static void readFile() throws IOException {
         //reading data from text file and adding Todo items to todoItemList
         try(BufferedReader br = new BufferedReader(new FileReader("TodoData.txt"))) {

@@ -17,11 +17,11 @@
     <content>
         <GridPane hgap="10" vgap="10">
             <Label  text="Short Description" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-            <TextField fx:id="shortDescription" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <TextField fx:id="shortDescriptionField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
             <Label text="Long Description" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-            <TextArea fx:id="longDescription" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <TextArea fx:id="longDescriptionArea" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
             <Label text="Select Deadline" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-            <DatePicker fx:id="deadline" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <DatePicker fx:id="deadlinePicker" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
         </GridPane>
     </content>
 
