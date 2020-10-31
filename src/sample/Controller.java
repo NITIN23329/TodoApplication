@@ -19,7 +19,7 @@ public class Controller {
     @FXML
     private Label myDeadlineLabel;  //shows deadline
     @FXML
-    private BorderPane borderPane;
+    private BorderPane borderPane;  //refer to border pane
 
     @FXML
     public void initialize(){
@@ -39,10 +39,10 @@ public class Controller {
         Dialog<ButtonType> dialog = new Dialog<>();
         //to get a parent's(borderPane) instance , we need to assign a id to parent
         dialog.initOwner(borderPane.getScene().getWindow());
-
+        FXMLLoader dialogLoader = new FXMLLoader();
+        dialogLoader.setLocation(getClass().getResource("TodoItemDialogue.fxml"));
         try{
-            Parent root = FXMLLoader.load(getClass().getResource("TodoItemDialogue.fxml"));
-            dialog.getDialogPane().setContent(root);
+            dialog.getDialogPane().setContent(dialogLoader.load());
         }
         catch (IOException e){
             System.out.println("could not load dialogue fxml");
