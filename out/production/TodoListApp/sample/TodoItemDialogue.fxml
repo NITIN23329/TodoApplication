@@ -9,9 +9,9 @@
 <!--Whenever we want Header/content to display some strings, we use them and it saves us from creating a new Label-->
 <DialogPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.DialogueController">
-    <headerText>
-        Use this dialog to add a new Todo item
-    </headerText>
+<!--    <headerText>-->
+<!--        Use this dialog to add a new Todo item.-->
+<!--    </headerText>-->
 <!--    Taking input a new Todo item-->
 <!--    We will use a TextField from short description, TextArea for long Description and DatePicker for deadline-->
     <content>

@@ -39,6 +39,7 @@ public class Controller {
         //to get a parent's(borderPane) instance , we need to assign a id to parent
         dialog.initOwner(borderPane.getScene().getWindow());
         dialog.setTitle("Add new Todo Item");
+        dialog.setHeaderText("Use this dialog to add a new Todo item.");
         FXMLLoader dialogLoader = new FXMLLoader();
         dialogLoader.setLocation(getClass().getResource("TodoItemDialogue.fxml"));
         try{
