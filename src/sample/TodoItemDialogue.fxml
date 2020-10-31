@@ -13,6 +13,7 @@
         We could put some instructions here. This is a string.
     </headerText>
 <!--    Taking input a new Todo item-->
+<!--    We will use a TextField from short description, TextArea for long Description and DatePicker for deadline-->
     <content>
         <GridPane hgap="10" vgap="10">
             <Label text="Short Description" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
