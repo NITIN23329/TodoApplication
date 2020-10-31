@@ -10,7 +10,7 @@
 <DialogPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.DialogueController">
     <headerText>
-        Use this dialog to add a new Todo item
+        Use this dialog to add a new Todo item.
     </headerText>
 <!--    Taking input a new Todo item-->
 <!--    We will use a TextField from short description, TextArea for long Description and DatePicker for deadline-->
