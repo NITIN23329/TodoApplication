@@ -8,7 +8,7 @@ import java.util.List;
 
 public class DataBase {
     private  static final List<TodoItem> todoItemList=new ArrayList<>();    //it will store list of Todo items we will display
-    private static final List<String> list = new ArrayList<>(); //it contains data of txt file
+    private static  ArrayList<String> list = new ArrayList<>(); //it contains data of txt file
     //singleton class i.e. only one instance will be created
     private DataBase(){}
     public static void readFile() throws IOException {
@@ -34,7 +34,7 @@ public class DataBase {
         }
     }
     private static void adder(){
-        //this
+        //this are default Todo items
         list.add("Mail Birthday Card\tBuy a 30th birthday card for Vidhi\t2020,08,23");
         list.add("Doctor's Appointment\tSee Dr. Smith at 123 Main Street, Bring reports\t2020,11,12");
         list.add("Finish Design Proposal\tI promised Mike I'd email website mockups by friday,1 February\t2020,02,01");
@@ -42,7 +42,13 @@ public class DataBase {
         list.add("Pick up dry cleaning\tClothes should be ready by wednesday\t2020,06,18");
         list.add("Buy a condom\tToday i am gonna have sex with Vidhi. She likes strawberry flavour\t2020,2,14");
     }
-
+    public static void addItem(String shortDescription,String detailedDescription ,LocalDate ld){
+        list = new ArrayList<>();
+        // User added Todo item using DialogPane
+        // newly added Todo will be at starting of list
+        String[] date = ld.toString().split("-");
+        list.add(shortDescription+"\t"+detailedDescription+"\t"+date[0]+','+date[1]+","+date[2]);
+    }
     public static List<TodoItem> getTodoItemList() {
         return todoItemList;
     }

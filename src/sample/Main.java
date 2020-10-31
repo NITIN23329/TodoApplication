@@ -23,15 +23,13 @@ public class Main extends Application {
     @Override
     public void init(){
         try {
-            //either use FileWriter to write the file or write in text file itself with proper format
-         //   DataBase.writeFile();
-            DataBase.readFile();
+//              either use FileWriter to write the file or write in text file itself with proper format
+//              DataBase.writeFile();
+                DataBase.readFile();
         }catch (IOException e){
             e.printStackTrace();
         }
-
     }
-
     public static void main(String[] args) {
         launch(args);
     }
