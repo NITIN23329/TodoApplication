@@ -1,16 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
+<!--DialogPane allows us to set 4 properties : header,graphic,content and buttons.-->
+<!--Dialog has 2 convenience property : HeaderText and ContentText-->
+<!--Whenever we want Header/content to display some strings, we use them and it saves us from creating a new Label-->
 <DialogPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.DialogueController">
     <headerText>
         We could put some instructions here. This is a string.
     </headerText>
+<!--    Taking input a new Todo item-->
     <content>
         <GridPane hgap="10" vgap="10">
             <Label text="Short Description" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
