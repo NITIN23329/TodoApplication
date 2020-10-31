@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class Controller {
     @FXML
@@ -50,6 +51,14 @@ public class Controller {
         //we are adding inbuilt OK and CANCEL Buttons to dialogPane
         dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+        Optional<ButtonType> result = dialog.showAndWait();
+        if(result.isPresent() && result.get()==ButtonType.OK){
+            System.out.println("OK pressed");
+        }
+        else{
+            System.out.println("CANCEL pressed");
+        }
     }
     //this eventHandler runs when any item is clicked
     @FXML
@@ -58,5 +67,7 @@ public class Controller {
         TodoItem selectedItem = myTodoList.getSelectionModel().getSelectedItem();
         myTextArea.setText(selectedItem.getDetailedDescription());
         myDeadlineLabel.setText(selectedItem.getDeadline());
+        //show event is a non-blocking event. It will show these 2 buttons and immediately return to main window
+        //show+wait is a blocking even. It will show buttons and wait for user interaction with dialog while main window remains suspended
     }
 }
