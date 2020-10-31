@@ -23,7 +23,7 @@
         <MenuBar>
             <Menu text="File">
                 <items>
-                    <MenuItem text="New deadline"/>
+                    <MenuItem text="New deadline" onAction="#showNewItemDialog"/>
                     <MenuItem text="Exit"/>
                 </items>
             </Menu>
