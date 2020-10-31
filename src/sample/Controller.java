@@ -47,6 +47,9 @@ public class Controller {
             System.out.println("could not load dialogue fxml");
             e.printStackTrace();
         }
+        //we are adding inbuilt OK and CANCEL Buttons to dialogPane
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
     }
     //this eventHandler runs when any item is clicked
     @FXML
