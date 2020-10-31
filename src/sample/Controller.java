@@ -4,7 +4,6 @@ import datamodel.DataBase;
 import datamodel.TodoItem;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 
@@ -54,6 +53,8 @@ public class Controller {
 
         Optional<ButtonType> result = dialog.showAndWait();
         if(result.isPresent() && result.get()==ButtonType.OK){
+            DialogueController dialogueController = dialogLoader.getController();
+            dialogueController.processResult();
             System.out.println("OK pressed");
         }
         else{
