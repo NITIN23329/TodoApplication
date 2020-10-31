@@ -27,7 +27,8 @@ public class DataBase {
     public static void writeFile() throws IOException{
         //writing data to text file from list
         // this operation is not needed if we write text file explicitly
-        adder();
+        //adder() is called for first time so that default todo items will be written in TodoData.txt
+        //adder();
         try(BufferedWriter br = new BufferedWriter(new FileWriter("TodoData.txt"))){
             for(String str : list)
                 br.write(str+"\n");
@@ -43,11 +44,29 @@ public class DataBase {
         list.add("Buy a condom\tToday i am gonna have sex with Vidhi. She likes strawberry flavour\t2020,2,14");
     }
     public static void addItem(String shortDescription,String detailedDescription ,LocalDate ld){
-        list = new ArrayList<>();
         // User added Todo item using DialogPane
         // newly added Todo will be at starting of list
         String[] date = ld.toString().split("-");
+        list=new ArrayList<>();
         list.add(shortDescription+"\t"+detailedDescription+"\t"+date[0]+','+date[1]+","+date[2]);
+        //adding remaining Todo items from TodoData.txt
+        try(BufferedReader br = new BufferedReader(new FileReader("TodoData.txt"))){
+            String input;
+            while ((input=br.readLine())!=null) {
+                list.add(input);
+            }
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+        try {
+            writeFile();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
     public static List<TodoItem> getTodoItemList() {
         return todoItemList;
