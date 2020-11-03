@@ -37,6 +37,8 @@ public class Controller {
         // set the cellFactory of ListView
         //List cell is the list of rows in ListView which contains Short Description of TodoItem
         // this will color those cells in red whose deadline is today
+        //this will color those cells in orange whose deadline is tomorrow
+        //we will color green to chose cells whose deadline is passed
        myTodoList.setCellFactory(new Callback<ListView<TodoItem>, ListCell<TodoItem>>() {
            @Override
            public ListCell<TodoItem> call(ListView<TodoItem> todoItemListView) {
@@ -50,6 +52,10 @@ public class Controller {
                            LocalDate ld =  item.getLocalDate(); //getting local date of each todo item
                            if(ld.equals(LocalDate.now()))
                                setTextFill(Color.RED);
+                           else if(ld.equals(LocalDate.now().plusDays(1)))
+                               setTextFill(Color.ORANGE);
+                           else if(ld.compareTo(LocalDate.now())<0)
+                               setTextFill(Color.GREEN);
                        }
                    }
                };
