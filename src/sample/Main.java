@@ -30,6 +30,17 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
+    // executed when user cuts/stops UI
+    @Override
+    public void stop() {
+        try {
+            DataBase.writeFile();
+        }
+       catch (IOException e){
+            e.printStackTrace();
+       }
+    }
+
     public static void main(String[] args) {
         launch(args);
     }

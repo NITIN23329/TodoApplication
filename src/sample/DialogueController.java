@@ -1,6 +1,7 @@
 package sample;
 
 import datamodel.DataBase;
+import datamodel.TodoItem;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
@@ -15,12 +16,12 @@ public class DialogueController {
     private DatePicker deadlinePicker;
 
     @FXML
-    public void processResult() {
+    public TodoItem processResult() {
         //whenever ok is pressed in Dialog window
         // we will access user inputed data
         //create a new Todo Item
         //add it to main window
         // when ever user input a new Todo item , we need to add it to our TodoData.txt file so that next time UI runs , it will be read newly added todo item
-        DataBase.addItem(shortDescriptionField.getText().trim(),longDescriptionArea.getText().trim(),deadlinePicker.getValue());
+        return DataBase.addItem(shortDescriptionField.getText().trim(),longDescriptionArea.getText().trim(),deadlinePicker.getValue());
     }
 }

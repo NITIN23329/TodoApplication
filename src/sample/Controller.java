@@ -2,6 +2,8 @@ package sample;
 
 import datamodel.DataBase;
 import datamodel.TodoItem;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -22,9 +24,21 @@ public class Controller {
     private Label myDeadlineLabel;  //shows deadline
     @FXML
     private BorderPane borderPane;  //refer to border pane
+    @FXML
+    private ContextMenu myContextMenu;  //comes up when we right click a Todo item
 
     @FXML
     public void initialize(){
+        myContextMenu=new ContextMenu();
+        MenuItem deleteMenuItem = new MenuItem("Delete");
+        myContextMenu.getItems().add(deleteMenuItem);
+        deleteMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                deleteItem((TodoItem)myTodoList.getSelectionModel().getSelectedItems());
+            }
+        });
+
         //adding all todo items to ListView
         myTodoList.getItems().setAll(DataBase.getTodoItemList());
         //only one item will be selected at a time
@@ -87,7 +101,13 @@ public class Controller {
         Optional<ButtonType> result = dialog.showAndWait();
         if(result.isPresent() && result.get()==ButtonType.OK){
             DialogueController dialogueController = dialogLoader.getController();
-            dialogueController.processResult();
+            // newly created todo item is added to Database (TodoData.txt) and also to ListView
+            TodoItem newItem=dialogueController.processResult();
+            myTodoList.getItems().add(newItem);
+            // it will be selected when user returns to Main window
+            myTodoList.getSelectionModel().select(newItem);
+            //display info of newly created todo item
+            handleClickListView();
             System.out.println("OK pressed");
         }
         else{
@@ -104,4 +124,18 @@ public class Controller {
         //show event is a non-blocking event. It will show these 2 buttons and immediately return to main window
         //show+wait is a blocking even. It will show buttons and wait for user interaction with dialog while main window remains suspended
     }
+    public void deleteItem(TodoItem item){
+        // it's a conformation before deletion
+        Alert alert  = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Todo Item");
+        alert.setHeaderText("Delete Item : "+item.toString());
+        alert.setContentText("Are you sure? Press YES/NO.");
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.isPresent() && result.get()==ButtonType.YES){
+            System.out.println(item+" is deleted");
+
+        }
+        else System.out.println(item+"is not deleted");
+    }
+
 }
