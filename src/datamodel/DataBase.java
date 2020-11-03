@@ -57,7 +57,9 @@ public class DataBase {
 
     }
     public static void delete(TodoItem item){
-
+        int index = todoItemList.indexOf(item);
+        list.remove(index);
+        todoItemList.remove(index);
     }
     public static List<TodoItem> getTodoItemList() {
         return todoItemList;

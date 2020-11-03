@@ -32,10 +32,12 @@ public class Controller {
         myContextMenu=new ContextMenu();
         MenuItem deleteMenuItem = new MenuItem("Delete");
         myContextMenu.getItems().add(deleteMenuItem);
+        // when we select Delete option in drop down , below even will be executed
         deleteMenuItem.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                deleteItem((TodoItem)myTodoList.getSelectionModel().getSelectedItems());
+                TodoItem item = myTodoList.getSelectionModel().getSelectedItem();
+                deleteItem(item);
             }
         });
 
@@ -49,6 +51,7 @@ public class Controller {
         handleClickListView();
 
         // set the cellFactory of ListView
+        //cellFactory is associated with each element in listView
         //List cell is the list of rows in ListView which contains Short Description of TodoItem
         // this will color those cells in red whose deadline is today
         //this will color those cells in orange whose deadline is tomorrow
@@ -73,6 +76,13 @@ public class Controller {
                        }
                    }
                };
+               //adding our contextMenu to cell factory using lambda expressing.
+               cell.emptyProperty().addListener(
+                       (obs,wasEmpty,nowEmpty) ->{
+                           if(nowEmpty)cell.setContextMenu(null);
+                           else cell.setContextMenu(myContextMenu);
+                       }
+               );
                return cell;
            }
        });
@@ -98,6 +108,7 @@ public class Controller {
         dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
 
+        //adding new todo item if user press OK
         Optional<ButtonType> result = dialog.showAndWait();
         if(result.isPresent() && result.get()==ButtonType.OK){
             DialogueController dialogueController = dialogLoader.getController();
@@ -129,11 +140,15 @@ public class Controller {
         Alert alert  = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete Todo Item");
         alert.setHeaderText("Delete Item : "+item.toString());
-        alert.setContentText("Are you sure? Press YES/NO.");
-        Optional<ButtonType> result = alert.showAndWait();
-        if(result.isPresent() && result.get()==ButtonType.YES){
-            System.out.println(item+" is deleted");
+        alert.setContentText("Are you sure? Press OK/CANCEL.");
 
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.isPresent() && result.get()==ButtonType.OK){
+            System.out.println(item+" is deleted");
+            DataBase.delete(item);
+            myTodoList.getItems().remove(item);
+            myTodoList.getSelectionModel().selectFirst();
+            handleClickListView();
         }
         else System.out.println(item+"is not deleted");
     }

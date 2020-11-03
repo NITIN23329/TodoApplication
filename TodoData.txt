@@ -1,7 +1,6 @@
 Mail Birthday Card	Buy a 30th birthday card for Vidhi	2020,08,23
 Doctor's Appointment	See Dr. Smith at 123 Main Street, Bring reports	2050,11,12
 Finish Design Proposal	I promised Mike I'd email website mockups by friday,1 February	2020,02,01
-Pickup Doug at train station	Doug's arriving on March 30 on 5:00 pm	2020,03,30
 Pick up dry cleaning	Clothes should be ready by wednesday	2040,06,18
 Buy a condom	Today i am gonna have sex with Vidhi. She likes strawberry flavour	2020,2,14
 CALL SHANU	DISCUSS ABOUT AP PROJECT . COLOR SWITCH GAME , HOW TO DRAW UML DIAGRAMS.	2020,11,04
