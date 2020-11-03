@@ -6,8 +6,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.util.Callback;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Optional;
 
 public class Controller {
@@ -31,6 +34,28 @@ public class Controller {
         //as the user didn't selected any item , we have to explicitly call handleClickView()
         handleClickListView();
 
+        // set the cellFactory of ListView
+        //List cell is the list of rows in ListView which contains Short Description of TodoItem
+        // this will color those cells in red whose deadline is today
+       myTodoList.setCellFactory(new Callback<ListView<TodoItem>, ListCell<TodoItem>>() {
+           @Override
+           public ListCell<TodoItem> call(ListView<TodoItem> todoItemListView) {
+               ListCell<TodoItem> cell = new ListCell<>(){
+                   @Override
+                   protected void updateItem(TodoItem item, boolean empty) {
+                       super.updateItem(item, empty);
+                       if(empty)setText(null);
+                       else {
+                           setText(item.toString());
+                           LocalDate ld =  item.getLocalDate(); //getting local date of each todo item
+                           if(ld.equals(LocalDate.now()))
+                               setTextFill(Color.RED);
+                       }
+                   }
+               };
+               return cell;
+           }
+       });
     }
     @FXML
     public void showNewItemDialog(){
