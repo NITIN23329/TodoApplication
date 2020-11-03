@@ -29,4 +29,8 @@ public class TodoItem {
     public String toString() {
         return shortDescription;
     }
+
+   public LocalDate getLocalDate(){
+        return deadline;
+   }
 }
