@@ -35,7 +35,7 @@
         <VBox style="-fx-background-color:yellow">
 <!--            VBox.vgrow="ALWAYS" will allow that control to grow and take as much space it can-->
 <!--            all other controls in Vbox is reduced to preferred area and remaining area is given to TextArea-->
-            <TextArea fx:id="myTextArea" VBox.vgrow="ALWAYS" />
+            <TextArea fx:id="myTextArea" VBox.vgrow="ALWAYS" wrapText="true" />
 <!--            we are adding "Due Date" and "Date" in a same row so we used HBox-->
             <HBox >
                 <Label text="Due Date: " textFill="darkblue">

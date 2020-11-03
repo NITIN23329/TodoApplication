@@ -19,7 +19,11 @@
             <Label  text="Short Description" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
             <TextField fx:id="shortDescriptionField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
             <Label text="Long Description" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-            <TextArea fx:id="longDescriptionArea" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+<!--            As bufferedReader read line by line , so if user press enter while writing long description will
+                lead to error but what if user wants to write long text , he have to scroll left and right-->
+<!--            Wrap text property will wrap our data vertically so user will ow scroll up and down-->
+            <TextArea fx:id="longDescriptionArea" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                            wrapText="true"/>
             <Label text="Select Deadline" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
             <DatePicker fx:id="deadlinePicker" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
         </GridPane>
