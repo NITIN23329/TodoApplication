@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Vendor: net.java.linoleum
+Implementation-Title: jlfgr
+Implementation-Version: 1_0
+Implementation-Vendor-Id: net.java.linoleum
+Specification-Vendor: net.java.linoleum
+Specification-Title: jlfgr
+Specification-Version: 1_0
+

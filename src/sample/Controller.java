@@ -75,6 +75,7 @@ public class Controller {
                                setTextFill(Color.ORANGE);
                            else if(ld.compareTo(LocalDate.now())<0)
                                setTextFill(Color.GREEN);
+                         //  else setTextFill(Color.BLACK);
                        }
                    }
                };
