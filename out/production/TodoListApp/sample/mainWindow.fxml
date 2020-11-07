@@ -10,6 +10,8 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
 <!--Border pane divide whole window 5 sections : top,bottom,left,right and remaining center-->
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Button?>
 <BorderPane fx:id="borderPane" fx:controller="sample.Controller"
             xmlns:fx="http://javafx.com/fxml" >
 <!--    in left section we will display short description of each item-->
@@ -20,14 +22,21 @@
 <!--    Menu bar contains a Menu named File which will be shown in UI design-->
 <!--    This menu has 2 options : add a new deadline and exit from application-->
     <top>
-        <MenuBar>
-            <Menu text="File">
-                <items>
-                    <MenuItem text="New deadline" onAction="#showNewItemDialog"/>
-                    <MenuItem text="Exit"/>
-                </items>
-            </Menu>
-        </MenuBar>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <items>
+                        <MenuItem text="New Deadline" onAction="#showNewItemDialog"/>
+                        <MenuItem text="Exit"/>
+                    </items>
+                </Menu>
+            </MenuBar>
+
+            <ToolBar>
+                <Button text="New Deadline" onAction="#showNewItemDialog"/>
+            </ToolBar>
+        </VBox>
+
     </top>
 <!--    all remaining area in window if given to center-->
     <center>
