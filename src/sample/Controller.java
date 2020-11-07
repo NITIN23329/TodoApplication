@@ -7,6 +7,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
@@ -125,6 +127,16 @@ public class Controller {
             System.out.println("CANCEL pressed");
         }
     }
+    // this eventHandler invoked  when user press delete key  , then selected todo item will be deleted
+    @FXML
+    public void handleKeyPressed(KeyEvent keyEvent){
+        TodoItem item = myTodoList.getSelectionModel().getSelectedItem();
+        if(item!=null){
+            if(keyEvent.getCode().equals(KeyCode.DELETE))
+                deleteItem(item);
+        }
+    }
+
     //this eventHandler runs when any item is clicked
     @FXML
     public void handleClickListView(){
@@ -135,6 +147,9 @@ public class Controller {
         //show event is a non-blocking event. It will show these 2 buttons and immediately return to main window
         //show+wait is a blocking even. It will show buttons and wait for user interaction with dialog while main window remains suspended
     }
+
+    //deleteItem is a controller which when a user right click on any todo item , it gives a option to delete that particular todo item
+    // then user chooses to delete  , a conformation tab will be opened for conformation, asking to select Ok/Cancel . if ok pressed that todo item will be deleted
     public void deleteItem(TodoItem item){
         // it's a conformation before deletion
         Alert alert  = new Alert(Alert.AlertType.CONFIRMATION);
@@ -150,7 +165,7 @@ public class Controller {
             myTodoList.getSelectionModel().selectFirst();
             handleClickListView();
         }
-        else System.out.println(item+"is not deleted");
+        else System.out.println(item+" is not deleted");
     }
 
 }

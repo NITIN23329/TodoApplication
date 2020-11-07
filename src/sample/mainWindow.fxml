@@ -14,7 +14,7 @@
             xmlns:fx="http://javafx.com/fxml" >
 <!--    in left section we will display short description of each item-->
     <left>
-        <ListView fx:id="myTodoList" onMouseClicked="#handleClickListView"/>
+        <ListView fx:id="myTodoList" onMouseClicked="#handleClickListView" onKeyPressed="#handleKeyPressed"/>
     </left>
 <!--    top section will contain a menu of new deadline and exit option-->
 <!--    Menu bar contains a Menu named File which will be shown in UI design-->
