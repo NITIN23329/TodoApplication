@@ -1,7 +1,7 @@
-Mail Birthday Card	Buy a 30th birthday card for Vidhi	2020,08,23
 Doctor's Appointment	See Dr. Smith at 123 Main Street, Bring reports	2050,11,12
 Finish Design Proposal	I promised Mike I'd email website mockups by friday,1 February	2020,02,01
 Pick up dry cleaning	Clothes should be ready by wednesday	2040,06,18
 THIS IS A DEMO	I WILL SET THE DEADLINE OF TODAY AND CHECK WHETHER THE SHORT DESCRIPTION IS IN RED COLOR OR NOT.	2020,11,03
 Study ELD	Study the ELD lecture which was missed on thursday.	2020,11,07
 Make ColorSwitch	Discuss and code game for ColorSwitch	2020,11,14
+Due tommorow	This Todo is due tommorow	2020,11,08

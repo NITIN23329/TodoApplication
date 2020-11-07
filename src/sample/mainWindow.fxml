@@ -48,7 +48,6 @@
                                 <Image url="@/jlfgr-1_0/toolbarButtonGraphics/general/New24.gif"/>
                             </ImageView>
                         </graphic>
-
                     </Button>
             </ToolBar>
         </VBox>
