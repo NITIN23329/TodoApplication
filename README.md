@@ -1,7 +1,7 @@
 ## TodoApplication
- This is a javafx project which contains list of items to do along with their detailed description and due date. 
+ This is a javafx project which contains list of items to be done along with their detailed description and due date. 
  
-  A brief overwiew of this app :
+  A brief overview of this app :
  Red color text signifies items due today.
  Orange color text signifies items due tommorow.
  Green color text signifies items whose deadline are over.
